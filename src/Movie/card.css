@@ -1,0 +1,28 @@
+.movie-card {
+    position: relative;
+  }
+  
+  .movie-card img {
+    height: 50%;
+    width: 100%;
+    
+    height: auto;
+  }
+  
+  .movie-card h2 {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .movie-card p {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #ccc;
+  }
+  .movie-card button  {
+    display: flex;
+    flex-direction: row;
+    justify-items: space-between;
+  }
