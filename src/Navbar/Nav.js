@@ -2,14 +2,14 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import logo from './image/asd-removebg-preview.png'; // Import the Netflix logo image
+import logo from './image/asd.png'; // Import the Netflix logo image
 import './nav.css';
 
 function Navb() {
   return (
     <Navbar bg="dark" variant="dark">
       <Navbar.Brand href="/">
-        <img src={logo} alt="asd-removebg-preview.png" className="logo" style={{ width: '110px' }} />
+        <img src={logo} alt="asd.png" className="logo"  />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">

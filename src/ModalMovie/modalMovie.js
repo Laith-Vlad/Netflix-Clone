@@ -6,20 +6,22 @@ const ModalMovie = ({ movie }) => {
   const [comment, setComment] = useState('');
 
   const handleAddToFavorites = async () => {
-    try {
-      // Send movie data and comment to the server to store in the database
-      await axios.post('http://localhost:3044/addmovie', {
-        movieData: {
-          name: movie.title,
-          img: movie.poster_path,
-          comment: comment
-        }
+    fetch('http://localhost:3044/addmovie', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(movie),
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Movie added to favorites:', data);
+        // succes massage
+      })
+      .catch(error => {
+        console.error('Error adding movie to favorites:', error);
+        // Handle any errors that occur during the POST request
       });
-      // Handle successful database storage
-      console.log('Movie added to favorites successfully!');
-    } catch (error) {
-      console.error('Error adding movie to favorites:', error);
-    }
   };
 
   const toggleModal = () => {
