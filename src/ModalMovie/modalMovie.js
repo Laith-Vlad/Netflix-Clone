@@ -23,7 +23,7 @@ const ModalMovie = ({ movie }) => {
         // Handle any errors that occur during the POST request
       });
   };
-
+       console.log(handleAddToFavorites);
   const toggleModal = () => {
     setShowModal(!showModal);
   };
