@@ -6,7 +6,7 @@ const ModalMovie = ({ movie }) => {
   const [comment, setComment] = useState('');
 
   const handleAddToFavorites = async () => {
-    fetch('http://localhost:3044/addmovie', {
+    fetch('https://movielibrarydeployedat.onrender.com/addmovie', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

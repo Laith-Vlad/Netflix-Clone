@@ -12,7 +12,7 @@ export default function FavList() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:3044/addmovie');
+      const response = await axios.get('https://movielibrarydeployedat.onrender.com/addmovie');
       setData(response.data.data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -21,7 +21,7 @@ export default function FavList() {
 
   const handleUpdate = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:3044/addmovie/${id}`);
+      const response = await axios.get(`https://movielibrarydeployedat.onrender.com/addmovie/${id}`);
       setUpdatedData({ ...response.data, id }); // Include the id in updatedData
       setShowForm(true);
     } catch (error) {
@@ -31,7 +31,7 @@ export default function FavList() {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.put(`http://localhost:3044/addmovie/${updatedData.id}`, {
+      await axios.put(`https://movielibrarydeployedat.onrender.com/addmovie/${updatedData.id}`, {
         title: updatedData.title,
         overview: updatedData.overview,
         comment: updatedData.comment,
@@ -53,7 +53,7 @@ export default function FavList() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3044/addmovie/${id}`);
+      await axios.delete(`https://movielibrarydeployedat.onrender.com/addmovie/${id}`);
       fetchData();
     } catch (error) {
       console.error('Error deleting data:', error);
