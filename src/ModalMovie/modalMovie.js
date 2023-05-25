@@ -4,24 +4,21 @@ import './mod.css';
 const ModalMovie = ({ movie }) => {
   const [showModal, setShowModal] = useState(false);
   const [comment, setComment] = useState('');
-
   const handleAddToFavorites = async () => {
-    fetch('https://movielibrarydeployedat.onrender.com/addmovie', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(movie),
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Movie added to favorites:', data);
-        // succes massage
-      })
-      .catch(error => {
-        console.error('Error adding movie to favorites:', error);
-        // Handle any errors that occur during the POST request
-      });
+    const movieData = {
+      title: movie.title,
+      overview: movie.overview,
+      comment: comment, // Include the comment field from the state
+    };
+  
+    try {
+      const response = await axios.post('https://movielibrarydeployedat.onrender.com/addmovie', movieData);
+      console.log('Movie added to favorites:', response.data);
+      // success message
+    } catch (error) {
+      console.error('Error adding movie to favorites:', error);
+      // Handle any errors that occur during the POST request
+    }
   };
        console.log(handleAddToFavorites);
   const toggleModal = () => {
